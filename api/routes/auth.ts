@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { User } from "../models/user";
+import User from "../models/user";
 import bcrypt from "bcrypt";
 import Joi from "joi";
 const router = express.Router();

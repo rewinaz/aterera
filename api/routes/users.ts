@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { User, validate } from "../models/user";
+import User, { validate } from "../models/user";
 import bcrypt from "bcrypt";
 import auth from "../middlewares/auth";
 const router = express.Router();

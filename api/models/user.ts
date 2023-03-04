@@ -45,6 +45,12 @@ const userSchema = new mongoose.Schema({
     default: Date.now,
   },
 
+  notes: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "NOTE",
+    default: [],
+  },
+
   updatedAt: {
     type: Date,
     default: Date.now,
@@ -65,7 +71,7 @@ userSchema.methods.generateAuthToken = function () {
 
 const User = mongoose.model<UserDocType>("USER", userSchema);
 
-const validate = (user: any) => {
+export const validate = (user: any) => {
   const schema = Joi.object({
     firstName: Joi.string().min(3).max(50).required(),
     lastName: Joi.string().min(3).max(50).required(),
@@ -76,4 +82,4 @@ const validate = (user: any) => {
   return schema.validate(user);
 };
 
-export { User, validate };
+export default User;
