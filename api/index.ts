@@ -21,7 +21,7 @@ app.use("/api/v1/note", noteRoute);
 
 mongoose.set("strictQuery", true);
 mongoose
-  .connect("mongodb://localhost:27017/aterera")
+  .connect(process.env.MONGO_URI!)
   .then(() => {
     console.log("Connected to database");
   })
